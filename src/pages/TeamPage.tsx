@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { teamMembers } from '../data/teamData';
 import { Linkedin, Mail, Check } from 'lucide-react';
-import { publicAsset } from '../utils/publicAsset';
+
+import { publicUrl } from '../lib/publicUrl';
 
 export default function TeamPage() {
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
@@ -101,7 +102,7 @@ export default function TeamPage() {
         <div className="pt-12 border-t border-[#0B0E14]/15">
           <div className="rounded-md overflow-hidden border border-[#0B0E14]/20 shadow-sm">
             <img
-              src={publicAsset('images/team/teampic.JPG')}
+              src={publicUrl('images/team/teampic.JPG')}
               alt="Spatial Biotechnology Lab Team Photo"
               className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />

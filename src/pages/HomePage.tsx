@@ -1,10 +1,16 @@
 import GameOfLife from '../components/GameOfLife';
-import { publicAsset } from '../utils/publicAsset';
+import { publicUrl } from '../lib/publicUrl';
 
 /** Viewport-fraction regions where live cells are cleared every tick (readability). */
 const PROTECTED_ZONES = [
   { left: 0.0, top: 0.06, right: 0.58, bottom: 0.78 },
   { left: 0.18, top: 0.72, right: 0.82, bottom: 1.0 },
+];
+
+const IBEC_LOGO_CANDIDATES = [
+  publicUrl('images/logos/ibec-logo.png'),
+  publicUrl('images/logos/IBEC logo.png'),
+  publicUrl('images/logos/ibec-standard.png'),
 ];
 
 export default function HomePage() {
@@ -36,17 +42,16 @@ export default function HomePage() {
           title="Institute for Bioengineering of Catalonia (IBEC)"
         >
           <img
-            src={publicAsset('images/logos/ibec-logo.png')}
+            src={IBEC_LOGO_CANDIDATES[0]}
             alt="IBEC — Institute for Bioengineering of Catalonia"
             className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto max-w-[min(92vw,520px)] object-contain drop-shadow-[0_0_16px_rgba(238,240,234,0.9)]"
             onError={(e) => {
               const t = e.target as HTMLImageElement;
-              const alt = publicAsset('images/logos/IBEC logo.png');
-              const std = publicAsset('images/logos/ibec-standard.png');
-              if (!t.src.endsWith(encodeURI('IBEC logo.png')) && !t.src.includes('IBEC%20logo.png')) {
-                t.src = alt;
-              } else if (!t.src.includes('ibec-standard.png')) {
-                t.src = std;
+              const idx = Number(t.dataset.fallback ?? '0');
+              const next = IBEC_LOGO_CANDIDATES[idx + 1];
+              if (next) {
+                t.dataset.fallback = String(idx + 1);
+                t.src = next;
               }
             }}
           />

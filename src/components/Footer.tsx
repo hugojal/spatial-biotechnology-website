@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
-import { publicAsset } from '../utils/publicAsset';
+import { publicUrl } from '../lib/publicUrl';
 
 export default function Footer() {
   return (
@@ -14,7 +14,7 @@ export default function Footer() {
               title="Spatial Biotechnology Group"
             >
               <img
-                src={publicAsset('brand-logo/mark-color.svg')}
+                src={publicUrl('brand-logo/mark-color.svg')}
                 alt="Spatial Biotechnology — group mark"
                 className="h-28 sm:h-36 md:h-44 w-auto object-contain"
               />
