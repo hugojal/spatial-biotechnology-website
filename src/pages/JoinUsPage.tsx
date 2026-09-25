@@ -1,61 +1,23 @@
 import { jobPositions } from '../data/positionsData';
-import { Briefcase, Send, CheckCircle2, Heart, Award, Sparkles, Mail } from 'lucide-react';
+import { Briefcase, Send, CheckCircle2 } from 'lucide-react';
 
 export default function JoinUsPage() {
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Header */}
-        <div className="max-w-3xl space-y-4">
-          <span className="px-2.5 py-1 rounded bg-[#0B0E14] text-[#EEF0EA] text-xs font-mono font-semibold">
-            CAREERS & FELLOWSHIPS
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-sans text-[#0B0E14] tracking-tight">
-            Join Our Laboratory
+        <header className="border-b border-[#0B0E14]/15 pb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-[#0B0E14] tracking-tight">
+            Join Us
           </h1>
-          <p className="font-serif text-base sm:text-lg text-[#0B0E14]/85 leading-relaxed">
-            We welcome ambitious, curious, and collaborative scientists to tackle fundamental and translational challenges in spatial multi-omics and cancer biology.
+        </header>
+
+        {/* Introduction */}
+        <section className="font-serif text-base sm:text-lg text-[#0B0E14] leading-relaxed">
+          <p>
+            We are always interested in hearing from motivated postdoctoral scientists, PhD candidates, research technicians, and undergraduate/Master interns interested in spatial multi-omics, clonal tumor ecology, and bioengineering at the Barcelona Science Park (PCB).
           </p>
-        </div>
-
-        {/* Why Join IBEC Card Grid */}
-        <section className="p-8 md:p-10 rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 space-y-6 shadow-sm">
-          <h2 className="text-xl font-bold font-sans text-[#0B0E14] tracking-tight">
-            Why do research with us in Barcelona?
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded bg-[#0B0E14] text-[#EEF0EA] flex items-center justify-center">
-                <Sparkles className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold font-sans text-[#0B0E14] text-base">Pioneering Technologies</h3>
-              <p className="font-serif text-xs text-[#0B0E14]/85 leading-relaxed">
-                Direct access to Multiplexed Ion Beam Imaging (MIBI), automated liquid robotics, organoid biobanks, and high-performance computing.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded bg-[#0B0E14] text-[#EEF0EA] flex items-center justify-center">
-                <Award className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold font-sans text-[#0B0E14] text-base">Global Collaborations</h3>
-              <p className="font-serif text-xs text-[#0B0E14]/85 leading-relaxed">
-                Work alongside international consortia including Stanford University, Harvard Medical School, DKFZ Heidelberg, and Duke University.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded bg-[#0B0E14] text-[#EEF0EA] flex items-center justify-center">
-                <Heart className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold font-sans text-[#0B0E14] text-base">Barcelona Ecosystem</h3>
-              <p className="font-serif text-xs text-[#0B0E14]/85 leading-relaxed">
-                Located at the Barcelona Science Park (PCB), offering a vibrant international scientific community with exceptional quality of life.
-              </p>
-            </div>
-          </div>
         </section>
 
         {/* Open Positions List */}
@@ -63,7 +25,7 @@ export default function JoinUsPage() {
           <div className="border-b border-[#0B0E14]/15 pb-2.5 flex items-center gap-2">
             <Briefcase className="w-5 h-5 text-[#4A5471]" />
             <h2 className="text-2xl font-bold font-sans text-[#0B0E14] tracking-tight">
-              Current Calls & Opportunities
+              Open Positions
             </h2>
           </div>
 
@@ -75,7 +37,7 @@ export default function JoinUsPage() {
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-[#0B0E14] text-[#EEF0EA]">
+                    <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#0B0E14] text-[#EEF0EA]">
                       {pos.category}
                     </span>
                     <span className="text-xs font-mono text-[#4A5471]">
@@ -87,7 +49,7 @@ export default function JoinUsPage() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold font-sans text-[#0B0E14]">
+                <h3 className="text-lg sm:text-xl font-bold font-sans text-[#0B0E14]">
                   {pos.title}
                 </h3>
 
@@ -97,7 +59,7 @@ export default function JoinUsPage() {
 
                 <div>
                   <h4 className="text-xs uppercase tracking-wider text-[#4A5471] font-semibold font-sans mb-2">
-                    Key Requirements:
+                    Requirements:
                   </h4>
                   <ul className="space-y-1 text-xs text-[#0B0E14]/90 font-sans">
                     {pos.requirements.map((req, i) => (
@@ -115,7 +77,7 @@ export default function JoinUsPage() {
                   </span>
                   <a
                     href={`mailto:xrovirac@ibecbarcelona.eu?subject=Application%20${encodeURIComponent(pos.reference)}%20-%20${encodeURIComponent(pos.title)}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#0B0E14] text-[#EEF0EA] font-sans font-bold hover:bg-[#4A5471] transition-all text-xs shadow-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#0B0E14] text-[#EEF0EA] font-sans font-bold hover:bg-[#4A5471] transition-all text-xs shadow-sm"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Apply via Email</span>
@@ -126,21 +88,11 @@ export default function JoinUsPage() {
           </div>
         </section>
 
-        {/* General Inquiry Banner */}
-        <section className="rounded-md border border-[#0B0E14]/20 bg-[#E1E4DB] p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
-          <div className="space-y-1">
-            <h3 className="text-lg font-bold font-sans text-[#0B0E14]">Spontaneous Applications & Fellowships</h3>
-            <p className="font-serif text-xs text-[#0B0E14]/80">
-              Interested in applying for MSCA, EMBO, FPU, or 'la Caixa' INPhINIT fellowships with our laboratory?
-            </p>
-          </div>
-          <a
-            href="mailto:xrovirac@ibecbarcelona.eu?subject=Fellowship%20Inquiry%20-%20Spatial%20Biotechnology"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#0B0E14] hover:bg-[#4A5471] text-[#EEF0EA] font-sans font-semibold text-xs transition-all shrink-0 shadow-sm"
-          >
-            <Mail className="w-3.5 h-3.5" />
-            <span>Contact Xavier Rovira-Clavé, PhD</span>
-          </a>
+        {/* Fellowships note */}
+        <section className="rounded-md border border-[#0B0E14]/20 bg-[#E1E4DB] p-6 text-sm font-serif text-[#0B0E14]/85 leading-relaxed">
+          <p>
+            Candidates wishing to apply for competitive doctoral or postdoctoral fellowships (e.g. MSCA, EMBO, FPU/FPI, 'la Caixa' INPhINIT) are encouraged to contact <strong>Xavier Rovira-Clavé, PhD</strong> (<a href="mailto:xrovirac@ibecbarcelona.eu" className="underline font-mono text-xs text-[#0B0E14]">xrovirac@ibecbarcelona.eu</a>) well in advance of the deadlines.
+          </p>
         </section>
 
       </div>

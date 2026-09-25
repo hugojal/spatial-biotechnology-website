@@ -5,28 +5,22 @@ import { Award, Globe, Building } from 'lucide-react';
 
 export default function GrantsNewsPage() {
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Header */}
-        <div className="max-w-3xl space-y-4">
-          <span className="px-2.5 py-1 rounded bg-[#0B0E14] text-[#EEF0EA] text-xs font-mono font-semibold">
-            FUNDING & MILESTONES
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-sans text-[#0B0E14] tracking-tight">
+        <header className="border-b border-[#0B0E14]/15 pb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-[#0B0E14] tracking-tight">
             Grants & News
           </h1>
-          <p className="font-serif text-base sm:text-lg text-[#0B0E14]/85 leading-relaxed">
-            Competitive international grants, consortium projects, and laboratory announcements.
-          </p>
-        </div>
+        </header>
 
         {/* Competitive Grants Section */}
         <section className="space-y-6">
           <div className="border-b border-[#0B0E14]/15 pb-2.5 flex items-center gap-2">
             <Award className="w-5 h-5 text-[#4A5471]" />
             <h2 className="text-2xl font-bold font-sans text-[#0B0E14] tracking-tight">
-              Major Funded Grants & Consortia
+              Funded Grants & Consortia
             </h2>
           </div>
 
@@ -34,11 +28,11 @@ export default function GrantsNewsPage() {
             {grants.map((grant) => (
               <div
                 key={grant.id}
-                className="rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 hover:border-[#0B0E14] transition-all p-6 md:p-8 space-y-4 flex flex-col justify-between shadow-sm"
+                className="rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 hover:border-[#0B0E14] transition-all p-6 md:p-7 space-y-4 flex flex-col justify-between shadow-sm"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-[#0B0E14] text-[#EEF0EA]">
+                    <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#0B0E14] text-[#EEF0EA]">
                       {grant.period}
                     </span>
                     {grant.acronym && (
@@ -48,7 +42,7 @@ export default function GrantsNewsPage() {
                     )}
                   </div>
 
-                  <h3 className="text-lg font-bold font-sans text-[#0B0E14] leading-snug">
+                  <h3 className="text-base font-bold font-sans text-[#0B0E14] leading-snug">
                     {grant.title}
                   </h3>
 
@@ -87,7 +81,7 @@ export default function GrantsNewsPage() {
           <div className="border-b border-[#0B0E14]/15 pb-2.5 flex items-center gap-2">
             <Building className="w-5 h-5 text-[#4A5471]" />
             <h2 className="text-2xl font-bold font-sans text-[#0B0E14] tracking-tight">
-              Latest News & Announcements
+              News & Announcements
             </h2>
           </div>
 

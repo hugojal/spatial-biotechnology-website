@@ -10,28 +10,22 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Header */}
-        <div className="max-w-3xl space-y-4">
-          <span className="px-2.5 py-1 rounded bg-[#0B0E14] text-[#EEF0EA] text-xs font-mono font-semibold">
-            CONTACT & LOCATION
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-sans text-[#0B0E14] tracking-tight">
-            Location & Inquiries
+        <header className="border-b border-[#0B0E14]/15 pb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-[#0B0E14] tracking-tight">
+            Contact & Location
           </h1>
-          <p className="font-serif text-base sm:text-lg text-[#0B0E14]/85 leading-relaxed">
-            The Spatial Biotechnology laboratory is located at the Barcelona Science Park (PCB) in Barcelona, Spain.
-          </p>
-        </div>
+        </header>
 
         {/* Grid: Contact Information + Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           
           {/* Left Column: Direct Info */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="p-8 rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 space-y-6 shadow-sm">
+            <div className="p-7 rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 space-y-6 shadow-sm">
               <h2 className="text-xl font-bold font-sans text-[#0B0E14]">Laboratory Address</h2>
               
               <div className="space-y-4 text-sm">
@@ -71,7 +65,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold font-sans text-[#0B0E14]">Telephone</h3>
                     <p className="font-mono text-xs text-[#0B0E14]/85 mt-1">
                       Office / Lab: +34 9340 37636 ext: 37636<br />
-                      PCB Central: +34 934 039 706
+                      PCB Reception: +34 934 039 706
                     </p>
                   </div>
                 </div>
@@ -93,20 +87,17 @@ export default function ContactPage() {
 
           {/* Right Column: Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 md:p-10 rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 space-y-6 shadow-sm">
+            <div className="p-7 md:p-9 rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 space-y-6 shadow-sm">
               <div>
-                <h2 className="text-xl font-bold font-sans text-[#0B0E14]">Send a Direct Inquiry</h2>
-                <p className="font-serif text-xs text-[#0B0E14]/75 mt-1">
-                  Scientific collaborations, student inquiries, or general lab questions.
-                </p>
+                <h2 className="text-xl font-bold font-sans text-[#0B0E14]">Send an Inquiry</h2>
               </div>
 
               {submitted ? (
                 <div className="p-6 rounded bg-[#EEF0EA] border border-[#0B0E14]/20 text-center space-y-2">
                   <CheckCircle2 className="w-8 h-8 text-channelCyan mx-auto" />
-                  <h3 className="text-base font-bold font-sans text-[#0B0E14]">Inquiry Ready</h3>
+                  <h3 className="text-base font-bold font-sans text-[#0B0E14]">Message Ready</h3>
                   <p className="font-serif text-xs text-[#0B0E14]/85">
-                    Thank you! You can also email Dr. Xavier Rovira-Clavé directly at{' '}
+                    Thank you. You can also contact Dr. Xavier Rovira-Clavé directly at{' '}
                     <a href="mailto:xrovirac@ibecbarcelona.eu" className="text-[#0B0E14] font-mono underline">
                       xrovirac@ibecbarcelona.eu
                     </a>.
@@ -150,7 +141,7 @@ export default function ContactPage() {
                     <textarea
                       rows={4}
                       required
-                      placeholder="Describe your inquiry, project proposal, or question..."
+                      placeholder="Your message..."
                       className="w-full px-3.5 py-2.5 rounded bg-[#EEF0EA] border border-[#0B0E14]/20 text-[#0B0E14] text-xs focus:outline-none focus:border-[#0B0E14] transition-colors font-serif"
                     />
                   </div>
@@ -172,7 +163,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-sans text-[#4A5471] hover:text-[#0B0E14] transition-colors"
                 >
-                  <span>Open location in Google Maps</span>
+                  <span>Open in Google Maps</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
