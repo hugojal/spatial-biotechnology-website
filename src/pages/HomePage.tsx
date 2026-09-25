@@ -1,47 +1,44 @@
 import GameOfLife from '../components/GameOfLife';
-import IbecLogo from '../components/IbecLogo';
 
 export default function HomePage() {
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] min-h-[calc(100vh-90px)] flex flex-col justify-between">
+    <div className="relative bg-[#EEF0EA] text-[#0B0E14] min-h-[calc(100vh-80px)] flex flex-col justify-between overflow-hidden">
       
-      {/* Central Hero Section */}
-      <main className="flex-1 flex items-center justify-center px-4 sm:px-8 py-8 sm:py-12 md:py-16 max-w-[1400px] mx-auto w-full">
-        
-        {/* Clean, spacious card container */}
-        <div className="w-full rounded-md border border-[#0B0E14]/30 bg-[#E1E4DB] p-8 sm:p-12 md:p-16 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-center">
-            
-            {/* Left Column: Core Quote */}
-            <div className="lg:col-span-5 flex flex-col justify-center">
-              <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl text-[#0B0E14] leading-[1.6] tracking-tight">
-                “Cells continuously sense their environment by integrating multiple input signals from neighbouring cells and respond to them with a fast-flowing cascade of abundant outputs. In turn, these outputs modify the environment.”
-              </blockquote>
-            </div>
+      {/* Full-surface Game of Life background with gradient fading towards the left text */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <GameOfLife cellSize={18} speedMs={110} fadeGradient={true} />
+      </div>
 
-            {/* Right Column: Unconstrained Live Cellular Simulation */}
-            <div className="lg:col-span-7 w-full h-[320px] sm:h-[400px] md:h-[480px]">
-              <GameOfLife cellSize={18} speedMs={110} />
-            </div>
-
-          </div>
+      {/* Main Quote Content Layer (Directly on background, no constraining box) */}
+      <main className="relative z-10 flex-1 flex items-center px-6 sm:px-12 md:px-16 lg:px-24 max-w-[1440px] mx-auto w-full pointer-events-none">
+        <div className="max-w-xl lg:max-w-2xl">
+          <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B0E14] leading-[1.5] tracking-tight drop-shadow-sm">
+            “Cells continuously sense their environment by integrating multiple input signals from neighbouring cells and respond to them with a fast-flowing cascade of abundant outputs. In turn, these outputs modify the environment.”
+          </blockquote>
         </div>
-
       </main>
 
-      {/* Centered IBEC Logo Presentation */}
-      <footer className="py-8 px-4 flex flex-col items-center justify-center bg-[#EEF0EA]">
+      {/* Official IBEC Logo Presentation at the bottom */}
+      <footer className="relative z-10 py-10 px-4 flex flex-col items-center justify-center bg-transparent">
         <a
           href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex flex-col items-center transition-transform hover:scale-105"
-          title="Spatial Biotechnology at Institute for Bioengineering of Catalonia (IBEC)"
+          title="Spatial Biotechnology Research Group at Institute for Bioengineering of Catalonia (IBEC)"
         >
-          <IbecLogo className="h-16 sm:h-20 w-auto" />
-          <span className="text-xs font-mono text-[#4A5471] mt-2 group-hover:text-[#0B0E14] transition-colors">
-            Parc Científic de Barcelona · Severo Ochoa Centre of Excellence
-          </span>
+          <img
+            src="/images/logos/ibec-standard.png"
+            alt="IBEC - Institute for Bioengineering of Catalonia · Severo Ochoa Centre of Excellence"
+            className="h-14 sm:h-18 w-auto object-contain"
+            onError={(e) => {
+              // Fallback if image path has spaces or needs alternate
+              const target = e.target as HTMLImageElement;
+              if (target.src.indexOf('ibec-logo.png') === -1) {
+                target.src = '/images/logos/ibec-logo.png';
+              }
+            }}
+          />
         </a>
       </footer>
 

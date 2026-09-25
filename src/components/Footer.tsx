@@ -1,34 +1,44 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
-import IbecLogo from './IbecLogo';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#0B0E14]/15 bg-[#0B0E14] text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <footer className="border-t border-white/10 bg-[#0B0E14] text-slate-300">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 items-start">
           
-          {/* Col 1: Brand & Affiliation */}
+          {/* Col 1: Big Official Logo on the Left Side */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="text-white font-sans font-bold text-lg tracking-tight">
-                Spatial Biotechnology Group
-              </span>
-            </div>
-            <p className="font-serif text-sm text-slate-400 leading-relaxed">
-              Deciphering spatiotemporal multicellular patterns and clonal behaviors in solid tumors using high-plex spatial multi-omics and perturbation technologies.
-            </p>
+            <a
+              href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
+              title="Institute for Bioengineering of Catalonia (IBEC)"
+            >
+              <img
+                src="/images/logos/ibec-dark.png"
+                alt="IBEC - Institute for Bioengineering of Catalonia"
+                className="h-16 sm:h-20 w-auto object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (target.src.indexOf('ibec-standard.png') === -1) {
+                    target.src = '/images/logos/ibec-standard.png';
+                  }
+                }}
+              />
+            </a>
             <div className="pt-2 text-xs font-mono text-slate-400">
               PI: <strong className="text-white">Xavier Rovira-Clavé, PhD</strong>
             </div>
           </div>
 
-          {/* Col 2: Quick Navigation */}
+          {/* Col 2: Navigation Links */}
           <div>
             <h3 className="text-xs font-sans font-semibold text-white tracking-wider uppercase mb-4">
               Explore
             </h3>
-            <ul className="space-y-2 text-sm font-sans">
+            <ul className="space-y-2.5 text-sm font-sans">
               <li>
                 <Link to="/research" className="hover:text-white transition-colors">
                   Research Lines & Technologies
@@ -62,7 +72,7 @@ export default function Footer() {
             <h3 className="text-xs font-sans font-semibold text-white tracking-wider uppercase mb-4">
               Affiliations & Support
             </h3>
-            <ul className="space-y-2 text-sm font-sans">
+            <ul className="space-y-2.5 text-sm font-sans">
               <li>
                 <a
                   href="https://ibecbarcelona.eu/"
@@ -70,7 +80,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-white transition-colors"
                 >
-                  <span>Institute for Bioengineering of Catalonia (IBEC)</span>
+                  <span>Institute for Bioengineering of Catalonia</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -103,7 +113,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-white transition-colors"
                 >
-                  <span>Asociación Española Contra el Cáncer (AECC)</span>
+                  <span>Asociación Española Contra el Cáncer</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
