@@ -102,7 +102,7 @@ export default function TeamPage() {
         <div className="pt-12 border-t border-[#0B0E14]/15">
           <div className="rounded-md overflow-hidden border border-[#0B0E14]/20 shadow-sm">
             <img
-              src={publicUrl('images/team/teampic.JPG')}
+              src={publicUrl('images/team/teampic.jpg')}
               alt="Spatial Biotechnology Lab Team Photo"
               className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
