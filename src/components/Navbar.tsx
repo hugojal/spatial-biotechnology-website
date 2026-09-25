@@ -23,7 +23,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full bg-[#0B0E14] text-[#EEF0EA] border-b border-[#0B0E14]/30 shadow-md">
+    <header className="relative z-20 w-full bg-[#0B0E14] text-[#EEF0EA] border-b border-[#0B0E14]/30 shadow-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 sm:px-8 py-4 sm:py-5">
         
         {/* Left: Prominent Brand Title & Reversed Paper Logo */}

@@ -5,7 +5,7 @@ import { Award, Globe, Building } from 'lucide-react';
 
 export default function GrantsNewsPage() {
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+    <div className="text-[#0B0E14] py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Header */}

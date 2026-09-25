@@ -13,7 +13,7 @@ export default function TeamPage() {
   };
 
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+    <div className="text-[#0B0E14] py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Page Title */}
@@ -75,17 +75,19 @@ export default function TeamPage() {
                       </a>
                     )}
 
-                    <button
-                      onClick={(e) => handleCopyEmail(member.email, e)}
-                      className="p-1.5 rounded text-[#4A5471] hover:text-[#0B0E14] hover:bg-white/60 transition-colors flex items-center gap-1"
-                      title={isCopied ? "Copied!" : `Copy email (${member.email})`}
-                    >
-                      {isCopied ? (
-                        <Check className="w-4 h-4 text-emerald-600" />
-                      ) : (
-                        <Mail className="w-4 h-4" />
-                      )}
-                    </button>
+                    {member.email ? (
+                      <button
+                        onClick={(e) => handleCopyEmail(member.email, e)}
+                        className="p-1.5 rounded text-[#4A5471] hover:text-[#0B0E14] hover:bg-white/60 transition-colors flex items-center gap-1"
+                        title={isCopied ? 'Copied!' : `Copy email (${member.email})`}
+                      >
+                        {isCopied ? (
+                          <Check className="w-4 h-4 text-emerald-600" />
+                        ) : (
+                          <Mail className="w-4 h-4" />
+                        )}
+                      </button>
+                    ) : null}
                   </div>
                 </div>
 

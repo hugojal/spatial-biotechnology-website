@@ -1,6 +1,6 @@
 export default function ResearchPage() {
   return (
-    <div className="bg-[#EEF0EA] text-[#0B0E14] py-12 md:py-20">
+    <div className="text-[#0B0E14] py-12 md:py-20">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Title */}
@@ -55,7 +55,7 @@ export default function ResearchPage() {
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
               <span className="text-xs font-sans font-semibold text-[#4A5471] mt-2">
-                (Left) Squamous Cell Carcinoma
+                Human Squamous Cell Carcinoma
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -65,7 +65,7 @@ export default function ResearchPage() {
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
               <span className="text-xs font-sans font-semibold text-[#4A5471] mt-2">
-                (Middle) In Vivo Clonal Tracing
+                In Vivo Clonal Tracing
               </span>
             </div>
             <div className="flex flex-col items-center">
@@ -75,7 +75,7 @@ export default function ResearchPage() {
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
               <span className="text-xs font-sans font-semibold text-[#4A5471] mt-2">
-                (Right) Super-Resolution Nucleus
+                Cisplatin-treated TYK-nu cell
               </span>
             </div>
           </div>

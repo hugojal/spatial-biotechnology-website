@@ -12,6 +12,11 @@ import GrantsNewsPage from './pages/GrantsNewsPage';
 import JoinUsPage from './pages/JoinUsPage';
 import ContactPage from './pages/ContactPage';
 
+const routerBasename =
+  import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL.slice(0, -1)
+    : import.meta.env.BASE_URL;
+
 function AppContent() {
   const location = useLocation();
   const isHome = location.pathname === '/';
@@ -39,7 +44,7 @@ function AppContent() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={routerBasename || undefined}>
       <ScrollToTop />
       <AppContent />
     </Router>

@@ -8,18 +8,18 @@ export const teamMembers: TeamMember[] = [
     role: 'Principal Investigator',
     category: 'pi',
     email: 'xrovirac@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/xavier-rovira-clav%C3%A9-b66a5035/',
+    linkedIn: 'https://www.linkedin.com/in/xavierroviraclave/',
     photo: '/images/team/xavierrovira.jpg',
     bio: 'Junior Group Leader & Principal Investigator'
   },
   {
     id: 'sergi-casellas-diaz',
-    name: 'Sergi Casellas Diaz',
+    name: 'Sergi Casellas Díaz',
     degree: 'PhD',
     role: 'Lab Manager / Senior Technician',
     category: 'management',
     email: 'scasellas@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/sergi-casellas-diaz/',
+    linkedIn: 'https://www.linkedin.com/in/sergi-casellas-d%C3%ADaz-phd-6b35b0214/',
     photo: '/images/team/sergicasellas.jpg',
     bio: 'Lab Management & Senior Operations'
   },
@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Postdoctoral Researcher',
     category: 'postdoc',
     email: 'mmarini@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/michela-marini/',
+    linkedIn: 'https://www.linkedin.com/in/michela-marini-bb813517a/',
     photo: '/images/team/michelamarini.jpg',
     bio: 'Postdoctoral Researcher'
   },
@@ -51,17 +51,17 @@ export const teamMembers: TeamMember[] = [
     role: 'PhD Candidate',
     category: 'phd',
     email: 'jcasado@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/jaime-casado-garcia-consuegra/',
+    linkedIn: 'https://www.linkedin.com/in/jaime-casado-garc%C3%ADa-consuegra-bioinf/',
     photo: '/images/team/jaimecasado.jpg',
     bio: 'PhD Candidate'
   },
   {
     id: 'oscar-espana-romera',
-    name: 'Oscar España Romera',
+    name: 'Òscar España Romera',
     role: 'PhD Candidate',
     category: 'phd',
     email: 'oespana@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/oscar-espana-romera/',
+    linkedIn: 'https://www.linkedin.com/in/%C3%B2scar-espa%C3%B1a-romera-747794250/',
     photo: '/images/team/oscarespana.jpg',
     bio: 'PhD Candidate'
   },
@@ -71,7 +71,7 @@ export const teamMembers: TeamMember[] = [
     role: 'PhD Candidate',
     category: 'phd',
     email: 'mlain@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/michela-lain-contato/',
+    linkedIn: 'https://www.linkedin.com/in/michela-lain-contato-ab5698215/',
     photo: '/images/team/michelalain.jpg',
     bio: 'PhD Candidate'
   },
@@ -81,9 +81,19 @@ export const teamMembers: TeamMember[] = [
     role: 'PhD Candidate',
     category: 'phd',
     email: 'cverdaguer@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/carles-verdaguer-geronimo/',
+    linkedIn: 'https://www.linkedin.com/in/carles-verdaguer-73663132b/',
     photo: '/images/team/carlesverdaguer.jpg',
     bio: 'PhD Candidate'
+  },
+  {
+    id: 'enric-ariza-ortiz',
+    name: 'Enric Ariza',
+    role: 'Laboratory Assistant',
+    category: 'intern',
+    email: '',
+    linkedIn: 'https://www.linkedin.com/in/enricarizaortiz/',
+    photo: '/images/team/enricariza.png',
+    bio: 'Laboratory Assistant'
   },
   {
     id: 'hugo-jal-hernandez',
@@ -91,7 +101,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Research Intern',
     category: 'intern',
     email: 'hjal@ibecbarcelona.eu',
-    linkedIn: 'https://www.linkedin.com/in/hugo-jal-hernandez/',
+    linkedIn: 'https://www.linkedin.com/in/hugo-jal/',
     photo: '/images/team/hugojal.jpg',
     bio: 'Research Intern / Undergraduate Intern'
   }

@@ -3,37 +3,26 @@ import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0B0E14] text-slate-300">
+    <footer className="relative z-20 border-t border-white/10 bg-[#0B0E14] text-slate-300">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 items-start">
-          
-          {/* Col 1: Big Official Logo on the Left Side */}
-          <div className="space-y-4">
-            <a
-              href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-105"
-              title="Institute for Bioengineering of Catalonia (IBEC)"
+          <div className="space-y-4 lg:col-span-1">
+            <Link
+              to="/"
+              className="inline-block transition-transform hover:scale-[1.02]"
+              title="Spatial Biotechnology Group"
             >
               <img
-                src="/images/logos/ibec-dark.png"
-                alt="IBEC - Institute for Bioengineering of Catalonia"
-                className="h-16 sm:h-20 w-auto object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (target.src.indexOf('ibec-standard.png') === -1) {
-                    target.src = '/images/logos/ibec-standard.png';
-                  }
-                }}
+                src="/brand-logo/mark-color.svg"
+                alt="Spatial Biotechnology — group mark"
+                className="h-28 sm:h-36 md:h-44 w-auto object-contain"
               />
-            </a>
-            <div className="pt-2 text-xs font-mono text-slate-400">
+            </Link>
+            <div className="pt-1 text-xs font-mono text-slate-400">
               PI: <strong className="text-white">Xavier Rovira-Clavé, PhD</strong>
             </div>
           </div>
 
-          {/* Col 2: Navigation Links */}
           <div>
             <h3 className="text-xs font-sans font-semibold text-white tracking-wider uppercase mb-4">
               Explore
@@ -67,7 +56,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Affiliations & Funding */}
           <div>
             <h3 className="text-xs font-sans font-semibold text-white tracking-wider uppercase mb-4">
               Affiliations & Support
@@ -120,7 +108,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Location & Contact */}
           <div>
             <h3 className="text-xs font-sans font-semibold text-white tracking-wider uppercase mb-4">
               Lab Address
@@ -129,8 +116,10 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                 <span>
-                  Parc Científic de Barcelona (PCB)<br />
-                  C/ Baldiri Reixac, 10-12<br />
+                  Parc Científic de Barcelona (PCB)
+                  <br />
+                  C/ Baldiri Reixac, 10-12
+                  <br />
                   08028 Barcelona, Spain
                 </span>
               </div>
@@ -146,15 +135,17 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-sans">
           <p>© {new Date().getFullYear()} Spatial Biotechnology Group · Rovira Clavé Lab · IBEC Barcelona.</p>
           <div className="flex items-center gap-6">
-            <Link to="/contact" className="hover:text-white">Directions & Map</Link>
-            <Link to="/join" className="hover:text-white">Career Opportunities</Link>
+            <Link to="/contact" className="hover:text-white">
+              Directions & Map
+            </Link>
+            <Link to="/join" className="hover:text-white">
+              Career Opportunities
+            </Link>
           </div>
         </div>
       </div>

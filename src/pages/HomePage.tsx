@@ -1,47 +1,54 @@
 import GameOfLife from '../components/GameOfLife';
 
+/** Viewport-fraction regions where live cells are cleared every tick (readability). */
+const PROTECTED_ZONES = [
+  { left: 0.0, top: 0.06, right: 0.58, bottom: 0.78 },
+  { left: 0.18, top: 0.72, right: 0.82, bottom: 1.0 },
+];
+
 export default function HomePage() {
   return (
-    <div className="relative bg-[#EEF0EA] text-[#0B0E14] min-h-[calc(100vh-80px)] flex flex-col justify-between overflow-hidden">
-      
-      {/* Full-surface Game of Life background with gradient fading towards the left text */}
+    <div className="relative text-[#0B0E14] min-h-[calc(100svh-5rem)] flex flex-col justify-between overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-auto">
-        <GameOfLife cellSize={18} speedMs={110} fadeGradient={true} />
+        <GameOfLife
+          cellSize={16}
+          speedMs={100}
+          fadeGradient
+          protectedZones={PROTECTED_ZONES}
+        />
       </div>
 
-      {/* Main Quote Content Layer (Directly on background, no constraining box) */}
       <main className="relative z-10 flex-1 flex items-center px-6 sm:px-12 md:px-16 lg:px-24 max-w-[1440px] mx-auto w-full pointer-events-none">
         <div className="max-w-xl lg:max-w-2xl">
-          <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B0E14] leading-[1.5] tracking-tight drop-shadow-sm">
-            “Cells continuously sense their environment by integrating multiple input signals from neighbouring cells and respond to them with a fast-flowing cascade of abundant outputs. In turn, these outputs modify the environment.”
+          <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B0E14] leading-[1.55] tracking-tight drop-shadow-[0_0_12px_rgba(238,240,234,0.85)]">
+            "Cells continuously sense their environment by integrating multiple input signals from neighbouring cells and respond to them with a fast-flowing cascade of abundant outputs. In turn, these outputs modify the environment."
           </blockquote>
         </div>
       </main>
 
-      {/* Official IBEC Logo Presentation at the bottom */}
-      <footer className="relative z-10 py-10 px-4 flex flex-col items-center justify-center bg-transparent">
+      <footer className="relative z-10 pb-10 md:pb-12 pt-6 px-4 flex flex-col items-center justify-center pointer-events-none">
         <a
           href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col items-center transition-transform hover:scale-105"
-          title="Spatial Biotechnology Research Group at Institute for Bioengineering of Catalonia (IBEC)"
+          className="group transition-transform hover:scale-[1.02] pointer-events-auto"
+          title="Institute for Bioengineering of Catalonia (IBEC)"
         >
           <img
-            src="/images/logos/ibec-standard.png"
-            alt="IBEC - Institute for Bioengineering of Catalonia · Severo Ochoa Centre of Excellence"
-            className="h-14 sm:h-18 w-auto object-contain"
+            src="/images/logos/ibec-logo.png"
+            alt="IBEC — Institute for Bioengineering of Catalonia"
+            className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto max-w-[min(92vw,520px)] object-contain drop-shadow-[0_0_16px_rgba(238,240,234,0.9)]"
             onError={(e) => {
-              // Fallback if image path has spaces or needs alternate
-              const target = e.target as HTMLImageElement;
-              if (target.src.indexOf('ibec-logo.png') === -1) {
-                target.src = '/images/logos/ibec-logo.png';
+              const t = e.target as HTMLImageElement;
+              if (!t.src.includes('IBEC%20logo.png')) {
+                t.src = '/images/logos/IBEC%20logo.png';
+              } else if (!t.src.includes('ibec-standard.png')) {
+                t.src = '/images/logos/ibec-standard.png';
               }
             }}
           />
         </a>
       </footer>
-
     </div>
   );
 }
