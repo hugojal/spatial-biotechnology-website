@@ -1,4 +1,5 @@
 import GameOfLife from '../components/GameOfLife';
+import { publicAsset } from '../utils/publicAsset';
 
 /** Viewport-fraction regions where live cells are cleared every tick (readability). */
 const PROTECTED_ZONES = [
@@ -35,15 +36,17 @@ export default function HomePage() {
           title="Institute for Bioengineering of Catalonia (IBEC)"
         >
           <img
-            src="/images/logos/ibec-logo.png"
+            src={publicAsset('images/logos/ibec-logo.png')}
             alt="IBEC — Institute for Bioengineering of Catalonia"
             className="h-28 sm:h-36 md:h-44 lg:h-48 w-auto max-w-[min(92vw,520px)] object-contain drop-shadow-[0_0_16px_rgba(238,240,234,0.9)]"
             onError={(e) => {
               const t = e.target as HTMLImageElement;
-              if (!t.src.includes('IBEC%20logo.png')) {
-                t.src = '/images/logos/IBEC%20logo.png';
+              const alt = publicAsset('images/logos/IBEC logo.png');
+              const std = publicAsset('images/logos/ibec-standard.png');
+              if (!t.src.endsWith(encodeURI('IBEC logo.png')) && !t.src.includes('IBEC%20logo.png')) {
+                t.src = alt;
               } else if (!t.src.includes('ibec-standard.png')) {
-                t.src = '/images/logos/ibec-standard.png';
+                t.src = std;
               }
             }}
           />

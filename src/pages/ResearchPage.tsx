@@ -1,3 +1,5 @@
+import { publicAsset } from '../utils/publicAsset';
+
 export default function ResearchPage() {
   return (
     <div className="text-[#0B0E14] py-12 md:py-20">
@@ -50,7 +52,7 @@ export default function ResearchPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#E1E4DB] p-4 rounded-md border border-[#0B0E14]/20 shadow-sm">
             <div className="flex flex-col items-center">
               <img
-                src="/images/research/mibi1.png"
+                src={publicAsset('images/research/mibi1.png')}
                 alt="Histopathology-grade MIBI in human squamous cell carcinoma"
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
@@ -60,7 +62,7 @@ export default function ResearchPage() {
             </div>
             <div className="flex flex-col items-center">
               <img
-                src="/images/research/mibi2.png"
+                src={publicAsset('images/research/mibi2.png')}
                 alt="Clonal tracing studies using MIBI in vivo"
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
@@ -70,7 +72,7 @@ export default function ResearchPage() {
             </div>
             <div className="flex flex-col items-center">
               <img
-                src="/images/research/mibi3.png"
+                src={publicAsset('images/research/mibi3.png')}
                 alt="Super-resolution multiplex imaging of cisplatin-treated TYK-nu nucleus"
                 className="w-full h-auto object-cover rounded bg-[#0B0E14]"
               />
