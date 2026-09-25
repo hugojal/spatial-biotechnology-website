@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Dna, ExternalLink } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,93 +23,101 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#070b14]/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
+    <header className="w-full bg-[#141720] border-b border-[#0B0E14] text-white">
+      <div className="mx-auto flex max-w-[1400px] items-stretch justify-between px-0 lg:px-6">
         
-        {/* Brand Logo & Name */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-ibec-lime to-emerald-500 text-slate-950 shadow-md group-hover:scale-105 transition-transform">
-            <Dna className="w-6 h-6 stroke-[2.2]" />
+        {/* Left: Brand / Title Block matching screenshot */}
+        <Link
+          to="/"
+          className="flex items-center gap-3.5 px-6 py-4 bg-[#4A5471] hover:bg-[#3D4660] transition-colors rounded-none lg:rounded-b-none"
+        >
+          {/* Brand Mark SVG from brand/logo */}
+          <div className="w-6 h-6 shrink-0 flex items-center justify-center">
+            <svg viewBox="0 0 48 48" width="24" height="24" className="w-full h-full">
+              <g transform="scale(0.2)">
+                <g fill="#FFFFFF" fillOpacity="0.35">
+                  <circle cx="32" cy="32" r="14"/><circle cx="76" cy="32" r="14"/><circle cx="120" cy="32" r="14"/><circle cx="164" cy="32" r="14"/><circle cx="208" cy="32" r="14"/>
+                  <circle cx="32" cy="76" r="14"/><circle cx="76" cy="76" r="14"/><circle cx="208" cy="76" r="14"/>
+                  <circle cx="32" cy="120" r="14"/><circle cx="208" cy="120" r="14"/>
+                  <circle cx="32" cy="164" r="14"/><circle cx="76" cy="164" r="14"/><circle cx="208" cy="164" r="14"/>
+                  <circle cx="32" cy="208" r="14"/><circle cx="76" cy="208" r="14"/><circle cx="120" cy="208" r="14"/><circle cx="164" cy="208" r="14"/><circle cx="208" cy="208" r="14"/>
+                </g>
+                <g stroke="#FFFFFF" strokeWidth="2" strokeOpacity="0.6">
+                  <line x1="120" y1="76" x2="164" y2="76"/><line x1="120" y1="76" x2="120" y2="120"/>
+                  <line x1="76" y1="120" x2="120" y2="120"/><line x1="120" y1="120" x2="164" y2="120"/>
+                  <line x1="164" y1="76" x2="164" y2="120"/><line x1="120" y1="120" x2="120" y2="164"/>
+                  <line x1="164" y1="120" x2="164" y2="164"/><line x1="120" y1="164" x2="164" y2="164"/>
+                </g>
+                <g>
+                  <circle cx="120" cy="76" r="15" fill="#C23E77"/>
+                  <circle cx="164" cy="76" r="15" fill="#1FA9A0"/>
+                  <circle cx="76" cy="120" r="15" fill="#C23E77"/>
+                  <circle cx="120" cy="120" r="15" fill="#1FA9A0"/>
+                  <circle cx="164" cy="120" r="15" fill="#C23E77"/>
+                  <circle cx="120" cy="164" r="15" fill="#1FA9A0"/>
+                  <circle cx="164" cy="164" r="15" fill="#C23E77"/>
+                </g>
+              </g>
+            </svg>
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-lg tracking-tight text-white flex items-center gap-2">
-              Spatial Biotechnology
-              <span className="text-xs px-2 py-0.5 rounded-full bg-ibec-lime/20 text-ibec-lime font-mono border border-ibec-lime/30">
-                IBEC
-              </span>
-            </span>
-            <span className="text-xs text-slate-400 font-medium">
-              Rovira-Clavé Lab · Barcelona
-            </span>
-          </div>
+          <span className="font-sans font-bold text-xl tracking-tight text-white">
+            Spatial Biotechnology Group
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
-                isActive(link.path)
-                  ? 'bg-white/10 text-ibec-lime font-semibold border border-ibec-lime/30 shadow-sm'
-                  : 'text-slate-300 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-
-          {/* IBEC Institute Direct Link */}
-          <a
-            href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-ibec-lime hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
-            title="Official IBEC Group Profile"
-          >
-            <span>IBEC Portal</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+        {/* Right: Desktop Navigation Items */}
+        <nav className="hidden lg:flex items-center gap-2 pr-4">
+          {navLinks.map((link) => {
+            const active = isActive(link.path);
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all font-sans ${
+                  active
+                    ? 'bg-[#1C2333] text-[#ABB330] border border-[#ABB330]/60 shadow-inner'
+                    : 'text-slate-200 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Mobile menu trigger */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10"
-          aria-label="Toggle Menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Hamburger Button */}
+        <div className="flex items-center lg:hidden pr-4">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-md text-slate-300 hover:text-white hover:bg-white/10"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-white/10 bg-[#0b1329] px-4 pt-2 pb-6 space-y-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isActive(link.path)
-                  ? 'bg-ibec-lime/20 text-ibec-lime border border-ibec-lime/30'
-                  : 'text-slate-300 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <a
-            href="https://ibecbarcelona.eu/research-groups/spatial-biotechnology/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-400 hover:text-ibec-lime"
-          >
-            <span>Visit IBEC Official Page</span>
-            <ExternalLink className="w-4 h-4" />
-          </a>
+        <div className="lg:hidden border-t border-[#0B0E14] bg-[#141720] px-4 py-4 space-y-1">
+          {navLinks.map((link) => {
+            const active = isActive(link.path);
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 rounded-md text-sm font-semibold ${
+                  active
+                    ? 'bg-[#1C2333] text-[#ABB330] border border-[#ABB330]/50'
+                    : 'text-slate-200 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
       )}
     </header>

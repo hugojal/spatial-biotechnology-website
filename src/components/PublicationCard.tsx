@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Publication } from '../types';
 import { BookOpen, ExternalLink, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
 
@@ -18,19 +18,19 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
   };
 
   return (
-    <div className="rounded-2xl bg-[#0b1329]/80 border border-white/10 hover:border-ibec-lime/30 transition-all p-6 md:p-8 space-y-4">
+    <div className="rounded-md bg-[#E1E4DB] border border-[#0B0E14]/20 hover:border-[#0B0E14] transition-all p-6 md:p-8 space-y-4 shadow-sm">
       
       {/* Top Badges */}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-ibec-lime/20 text-ibec-lime border border-ibec-lime/30 font-mono">
+          <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-[#0B0E14] text-[#EEF0EA] font-mono">
             {pub.year}
           </span>
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+          <span className="text-xs font-semibold font-sans uppercase tracking-wider text-[#4A5471]">
             {pub.journal}
           </span>
           {pub.openAccess && (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold font-sans bg-[#EEF0EA] text-[#0B0E14] border border-[#0B0E14]/20">
               Open Access
             </span>
           )}
@@ -39,10 +39,10 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={handleCopyCitation}
-            className="flex items-center gap-1 text-xs text-slate-400 hover:text-white px-2 py-1 rounded-md bg-white/5 hover:bg-white/10 transition-colors"
+            className="flex items-center gap-1 text-xs font-sans text-[#4A5471] hover:text-[#0B0E14] px-2.5 py-1 rounded bg-[#EEF0EA] hover:bg-white border border-[#0B0E14]/15 transition-colors"
             title="Copy BibTeX / formatted citation"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-channelCyan" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'Copied' : 'Cite'}</span>
           </button>
           
@@ -50,7 +50,7 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
             href={`https://doi.org/${pub.doi}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs font-semibold text-ibec-lime hover:text-white px-3 py-1 rounded-md bg-ibec-lime/10 hover:bg-ibec-lime/20 border border-ibec-lime/30 transition-colors"
+            className="flex items-center gap-1 text-xs font-semibold font-mono text-[#0B0E14] hover:text-[#4A5471] px-3 py-1 rounded bg-[#EEF0EA] hover:bg-white border border-[#0B0E14]/25 transition-colors"
           >
             <span>DOI</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -59,19 +59,19 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
       </div>
 
       {/* Title */}
-      <h3 className="text-lg md:text-xl font-bold text-white leading-snug">
+      <h3 className="text-lg md:text-xl font-bold font-sans text-[#0B0E14] leading-snug">
         <a
           href={`https://doi.org/${pub.doi}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-ibec-lime transition-colors"
+          className="hover:text-[#4A5471] transition-colors"
         >
           {pub.title}
         </a>
       </h3>
 
-      {/* Authors */}
-      <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-sans">
+      {/* Authors in Source Serif 4 */}
+      <p className="font-serif text-xs md:text-sm text-[#0B0E14]/80 leading-relaxed">
         {pub.authors}
       </p>
 
@@ -80,18 +80,18 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
         {pub.keywords.map((kw, i) => (
           <span
             key={i}
-            className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-white/5 text-slate-300 border border-white/5"
+            className="px-2 py-0.5 text-[11px] font-sans rounded bg-[#EEF0EA] text-[#4A5471] border border-[#0B0E14]/10"
           >
             {kw}
           </span>
         ))}
       </div>
 
-      {/* Expandable Abstract */}
+      {/* Expandable Abstract in Source Serif 4 */}
       <div className="pt-2">
         <button
           onClick={() => setShowAbstract(!showAbstract)}
-          className="flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-ibec-lime transition-colors"
+          className="flex items-center gap-1.5 text-xs font-semibold font-sans text-[#0B0E14] hover:text-[#4A5471] transition-colors"
         >
           <BookOpen className="w-3.5 h-3.5" />
           <span>{showAbstract ? 'Hide Abstract' : 'Read Full Abstract'}</span>
@@ -99,7 +99,7 @@ export default function PublicationCard({ pub }: PublicationCardProps) {
         </button>
 
         {showAbstract && (
-          <div className="mt-3 p-4 rounded-xl bg-slate-950/70 border border-white/10 text-xs text-slate-300 leading-relaxed text-justify animate-fadeIn">
+          <div className="mt-3 p-4 rounded bg-[#EEF0EA] border border-[#0B0E14]/15 font-serif text-xs text-[#0B0E14]/90 leading-relaxed text-justify">
             <p>{pub.abstract}</p>
           </div>
         )}

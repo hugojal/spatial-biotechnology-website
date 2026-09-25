@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 60 120 120" width="64" height="64" role="img" aria-label="Spatial Biotechnology favicon">
+  <title>Spatial Biotechnology — favicon stamp</title>
+  <rect x="60" y="60" width="120" height="120" fill="#0B0E14"/>
+  <g>
+    <circle cx="120" cy="76" r="15" fill="#C23E77"/>
+    <circle cx="164" cy="76" r="15" fill="#1FA9A0"/>
+    <circle cx="76" cy="120" r="15" fill="#C23E77"/>
+    <circle cx="120" cy="120" r="15" fill="#1FA9A0"/>
+    <circle cx="164" cy="120" r="15" fill="#C23E77"/>
+    <circle cx="120" cy="164" r="15" fill="#1FA9A0"/>
+    <circle cx="164" cy="164" r="15" fill="#C23E77"/>
+  </g>
+</svg>

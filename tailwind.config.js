@@ -7,40 +7,36 @@ export default {
   theme: {
     extend: {
       colors: {
+        ink: "#0B0E14",
+        paper: "#EEF0EA",
+        paperDim: "#E1E4DB",
+        slate: {
+          DEFAULT: "#4A5471",
+          50: "#F4F5F8",
+          100: "#E9ECF1",
+          200: "#D3D8E3",
+          300: "#ADB6CB",
+          400: "#8390AF",
+          500: "#5D6B8F",
+          600: "#4A5471",
+          700: "#363D52",
+          800: "#242937",
+          900: "#141720",
+          950: "#0B0E14",
+        },
+        channelCyan: "#1FA9A0",
+        channelMagenta: "#C23E77",
         ibec: {
           lime: "#abb330",
-          "lime-dark": "#8d9426",
-          "lime-light": "#c4cc3b",
-          dark: "#444444",
-          charcoal: "#293e6b",
-          gray: "#575760",
+          orange: "#ea5b0c",
+          gray: "#4d4f53",
         },
-        biotech: {
-          950: "#070b14",
-          900: "#0b1329",
-          850: "#101b38",
-          800: "#162244",
-          700: "#1f305c",
-          accent: "#06b6d4",
-          emerald: "#10b981",
-          violet: "#8b5cf6",
-          rose: "#f43f5e"
-        }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        sans: ["'IBM Plex Sans'", "system-ui", "sans-serif"],
+        serif: ["'Source Serif 4'", "Georgia", "serif"],
+        mono: ["'IBM Plex Mono'", "ui-monospace", "monospace"],
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
-      }
     },
   },
   plugins: [],

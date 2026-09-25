@@ -4,26 +4,8 @@
 
 @layer base {
   body {
-    @apply bg-[#070b14] text-slate-100 antialiased selection:bg-[#abb330] selection:text-slate-950;
+    @apply bg-paper text-ink font-sans antialiased;
   }
-}
-
-/* Custom glowing effects and biotech glassmorphism */
-.glass-panel {
-  background: rgba(11, 19, 41, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-panel-hover:hover {
-  background: rgba(16, 27, 56, 0.85);
-  border-color: rgba(171, 179, 48, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(171, 179, 48, 0.15);
 }
 
 /* Custom scrollbar */
@@ -32,12 +14,12 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070b14;
+  background: #EEF0EA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #4A5471;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #abb330;
+  background: #0B0E14;
 }
