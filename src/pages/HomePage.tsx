@@ -19,7 +19,7 @@ export default function HomePage() {
       <div className="absolute inset-0 z-0 pointer-events-auto">
         <GameOfLife
           cellSize={16}
-          speedMs={100}
+          speedMs={145}
           fadeGradient
           protectedZones={PROTECTED_ZONES}
         />
@@ -27,7 +27,7 @@ export default function HomePage() {
 
       <main className="relative z-10 flex-1 flex items-center px-6 sm:px-12 md:px-16 lg:px-24 max-w-[1440px] mx-auto w-full pointer-events-none">
         <div className="max-w-xl lg:max-w-2xl">
-          <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B0E14] leading-[1.55] tracking-tight drop-shadow-[0_0_12px_rgba(238,240,234,0.85)]">
+          <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl text-[#0B0E14] leading-[1.55] tracking-tight drop-shadow-[0_0_12px_rgba(238,240,234,0.85)]">
             "Cells continuously sense their environment by integrating multiple input signals from neighbouring cells and respond to them with a fast-flowing cascade of abundant outputs. In turn, these outputs modify the environment."
           </blockquote>
         </div>

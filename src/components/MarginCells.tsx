@@ -1,7 +1,9 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const CELL = 15;
+const MARGIN_COLS = 10;
+const MIN_CELL_PX = 8;
+const MD_MIN_WIDTH = 768;
 const COLORS: Record<number, string> = {
   1: '#4A5471',
   2: '#1FA9A0',
@@ -179,6 +181,11 @@ export default function MarginCells() {
       canvas.height = targetH;
     }
 
+    if (vw < MD_MIN_WIDTH) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
+
     const header = document.querySelector('header');
     const footer = document.querySelector('footer.border-t');
     const headerBottom = header ? Math.max(0, header.getBoundingClientRect().bottom) : 72;
@@ -190,30 +197,32 @@ export default function MarginCells() {
     if (footerRect && footerTop < vh) {
       drawBottom = Math.min(drawBottom, footerTop - 4);
     }
-    const drawHeight = drawBottom - drawTop;
-    if (drawHeight < CELL * 2) {
+    const { left: contentLeft, right: contentRight } = getContentBounds();
+    const marginPad = 10;
+    const leftX0 = marginPad;
+    const leftMarginWidth = Math.max(0, contentLeft - marginPad - leftX0);
+    const rightX0 = contentRight + marginPad;
+    const rightMarginWidth = Math.max(0, vw - marginPad - rightX0);
+
+    const gutterForScale = Math.min(
+      leftMarginWidth > 0 ? leftMarginWidth : Infinity,
+      rightMarginWidth > 0 ? rightMarginWidth : Infinity
+    );
+    if (!Number.isFinite(gutterForScale) || gutterForScale < MIN_CELL_PX * 4) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       return;
     }
 
-    const { left: contentLeft, right: contentRight } = getContentBounds();
-    const marginPad = 10;
-    const leftX0 = marginPad;
-    const leftX1 = contentLeft - marginPad;
-    const rightX0 = contentRight + marginPad;
-    const rightX1 = vw - marginPad;
-
-    const leftCols = Math.floor((leftX1 - leftX0) / CELL);
-    const rightCols = Math.floor((rightX1 - rightX0) / CELL);
-
-    if (leftCols < 2 && rightCols < 2) {
+    const cellSize = gutterForScale / MARGIN_COLS;
+    const drawHeight = drawBottom - drawTop;
+    if (drawHeight < cellSize * 2) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       return;
     }
 
     const scrollY = window.scrollY;
-    const scrollRow = Math.floor(scrollY / CELL);
-    const maxRow = Math.floor((drawBottom - drawTop) / CELL);
+    const scrollRow = Math.floor(scrollY / cellSize);
+    const maxRow = Math.floor((drawBottom - drawTop) / cellSize);
 
     ctx.save();
     ctx.scale(dpr, dpr);
@@ -222,21 +231,19 @@ export default function MarginCells() {
     ctx.rect(0, drawTop, vw, Math.max(0, drawBottom - drawTop));
     ctx.clip();
 
-    const radius = CELL * 0.22;
+    const radius = cellSize * 0.22;
     const pad = 1.5;
     const maxCellAlpha = 0.5;
+    const cols = MARGIN_COLS;
 
     const paintStrip = (
       xStart: number,
-      cols: number,
       sideOffset: number,
       side: 'left' | 'right'
     ) => {
-      if (cols < 1) return;
-
       for (let vr = 0; vr <= maxRow; vr++) {
-        const y = drawTop + vr * CELL;
-        if (y + CELL > drawBottom) break;
+        const y = drawTop + vr * cellSize;
+        if (y + cellSize > drawBottom) break;
 
         const docRow = scrollRow + vr;
         const bandIndex = Math.floor(docRow / BAND_ROWS);
@@ -250,18 +257,28 @@ export default function MarginCells() {
           const fade = marginFadeAlpha(c, cols, side);
           if (fade < 0.04) continue;
 
-          const x = xStart + c * CELL;
+          const x = xStart + c * cellSize;
           ctx.globalAlpha = maxCellAlpha * fade;
           ctx.fillStyle = COLORS[val] ?? COLORS[1];
           ctx.beginPath();
-          ctx.roundRect(x + pad, y + pad, CELL - pad * 2, CELL - pad * 2, radius);
+          ctx.roundRect(
+            x + pad,
+            y + pad,
+            cellSize - pad * 2,
+            cellSize - pad * 2,
+            radius
+          );
           ctx.fill();
         }
       }
     };
 
-    paintStrip(leftX0, leftCols, 0, 'left');
-    paintStrip(rightX0, rightCols, 1000, 'right');
+    if (leftMarginWidth >= MIN_CELL_PX * 4) {
+      paintStrip(leftX0, 0, 'left');
+    }
+    if (rightMarginWidth >= MIN_CELL_PX * 4) {
+      paintStrip(rightX0, 1000, 'right');
+    }
 
     ctx.restore();
   }, [routeSeed]);
